@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="ParentCtrl" class='level'>
+    <h2>Parent</h2>
+    <button ng-click="broadcastMsg()">Broadcast msg</button>
+    <button ng-click="emitMsg()">Emit msg</button>
+    <pre>Message from: {{message}}</pre>
+    <div id='child' ng-controller="ChildCtrl" class='level'>
+        <h2>Child</h2>
+        <button ng-click="broadcastMsg()">Broadcast msg</button>
+        <button ng-click="emitMsg()">Emit msg</button>
+        <pre>Message from: {{message}}</pre>
+        <div id='grandChild' ng-controller="GrandChildCtrl" class='level'>
+            <h2>Grand child</h2>
+            <pre>Message from: {{message}}</pre>
+        </div>
+    </div>
+    <div id='sibling' ng-controller="SiblingCtrl" class='level'>
+        <h2>Sibling</h2>
+        <button ng-click="broadcastMsg()">Broadcast msg</button>
+        <button ng-click="emitMsg()">Emit msg</button>
+        <pre>Message from: {{message}}</pre>
+    </div>
+</body>
+
+</html>

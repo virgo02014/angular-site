@@ -1,0 +1,10 @@
+{
+    "use": [
+        "autoprefixer"
+    ],
+    "input": "test/todo.test.css",
+    "output": "test/index.css",
+    "autoprefixer": {
+        "browsers": "> 5%"
+    }
+}

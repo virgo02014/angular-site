@@ -1,0 +1,112 @@
+<select ng-model="repeat.strId">
+    <option value="">str repeat</option>
+    <option ng-repeat="a in str" value={{a.id}} ng-bind="a.name"></option>
+</select>
+
+<select ng-model="repeat.numId">
+    <option value="">num repeat -> "error"</option>
+    <option ng-repeat="b in num" value={{b.id}} ng-bind="b.name"></option>
+</select>
+
+<select ng-model="option.strId" ng-options="c.id as c.name for c in str">
+    <option value="">str options</option>
+</select>
+
+<select ng-model="option.numId" ng-options="d.id as d.name for d in num">
+    <option value="">arr options</option>
+</select>
+
+
+<div ng-click="error('rootscope function')">点我</div>
+<p>directive compile link compare</p>
+<div>
+    <label class="W180">基础下拉列表</label>
+    <select ng-model="seleted" ng-options="a.name for a in animals">
+        <option value="">请选择你的萌宠</option>
+    </select>
+    <br />
+
+    <label class="W180">自定义下拉显示名称</label>
+    <select ng-model="seleted" ng-options="(a.name + '爱吃' + a.food) for a in animals">
+        <option value="">请选择你的萌宠</option>
+    </select>
+    <br />
+
+    <label class="W180">分组选项</label>
+    <select ng-model="seletedGroup" ng-options="a.id as (a.name + '的爱好是' + a.favor) group by a.sex for a in animals">
+         <option value="">请选择你的萌宠</option>
+    </select>
+    <label ng-show="seletedGroup">ID为<span>{{seletedGroup}}</span></label>
+    <br />
+
+    <label class="W180">自定义ngModel的值</label>
+    <select ng-model="seletedId" ng-options="a.id as a.name for a in animals">
+        <option value="">请选择你的萌宠</option>
+    </select>
+    <label ng-show="seletedId">ID为<span>{{seletedId}}</span></label>
+</div>
+<br />
+
+<p>object</p>
+<div>
+    <label class="W180">基础下拉列表</label>
+    <select ng-model="valueId1" ng-options="value.id as (value.name) for (key,value) in animalsObject">
+        <option value="">请选择你的萌宠</option>
+    </select>
+    <label ng-show="valueId1">ID为<span>{{valueId1}}</span></label>
+    <br />
+
+    <label class="W180">自定义下拉显示名称</label>
+    <select ng-model="valueId2" ng-options="value.id as (value.name + '爱吃' + value.food) for (key,value) in animalsObject">
+        <option value="">请选择你的萌宠</option>
+    </select>
+    <label ng-show="valueId2">ID为<span>{{valueId2}}</span></label>
+    <br />
+
+    <label class="W180">分组选项</label>
+    <select ng-model="valueId3" ng-options="value.id as (value.name + '的爱好是' + value.favor) group by value.sex for (key,value) in animalsObject">
+        <option value="">请选择你的萌宠</option>
+    </select>
+    <label ng-show="valueId3">ID为<span>{{valueId3}}</span></label>
+    <br />
+
+    <label class="W180">自定义ngModel的值</label>
+    <select ng-model="valueId4" ng-options="value.id as (value.name) for (key,value) in animalsObject">
+        <option value="">请选择你的萌宠</option>
+    </select>
+    <label ng-show="valueId4">ID为<span>{{valueId4}}</span></label>
+</div>
+
+<br />
+
+<div id="qr-code"></div>
+<a class="qr-download" download="注册二维码.png" >下载二维码</a>
+<span class="copy-url" fb-copy="{{qrUrl}}">点击复制网址</span>
+
+<br />
+
+<p>点击复制后在右边textarea CTRL+V看一下</p>
+<input type="text" id="inputText" value="测试文本"/>
+<input type="button" id="btn" value="复制" ng-click="copyTest()"/>
+<textarea rows="4"></textarea>
+
+<br />
+
+<div>
+    <label>Their URL field:</label>
+    <input type="text" ng-model="theirUrl">
+</div>
+
+<!-- array -->
+<!--
+label for value in array
+select as label for value in array
+label group by group for value in array
+select as label group by group for value in array -->
+
+<!-- object -->
+<!--
+label for (key,value) in object
+select as label for (key,value) in object
+label group by group for (key,value) in object
+select as label group by group for (key,value) in object -->

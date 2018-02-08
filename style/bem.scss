@@ -1,0 +1,22 @@
+.block {
+    display: none;
+    @at-root #{&}__element {
+        width: 2px;
+    }
+    @at-root #{&}--modifier {
+        height: 3px;
+    }
+}
+
+div {
+    display: none;
+    @at-root p {
+        color: red;
+        span {
+            font-size: 20px;
+        }
+    }
+    span {
+        font-weight: bold;
+    }
+}

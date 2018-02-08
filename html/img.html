@@ -1,0 +1,83 @@
+<!-- 照片墙 -->
+<div class="container block clearfix">
+    <ul>
+        <li ng-repeat="img in imgsList track by $index">
+            <img ng-src="{{'../img/bg/' + img.name}}">
+        </li>
+    </ul>
+    <input type="button" value="loading-bar" ng-click="submit()">
+    <!-- <div id="loading-bar-container"></div> -->
+
+    <input type="button" value="ajax" ng-click="ajaxSubmit()">
+</div>
+
+<!-- <style type="text/css">
+    #loading-bar .bar {
+      position: relative;
+    }
+</style> -->
+
+<div class="block">
+    <input type="checkbox" ws-true-value="3" ws-false-value="0" ng-model="val" ng-click="selectValue()">
+    <input type="checkbox" id="check" true-value="true" false-true="false" ng-click="selectValue()">
+    <br />
+    1&nbsp;a半角的不断行的空白格（推荐使用）
+    <br />
+    2&ensp;b半角的空格
+    <br />
+    3&emsp;c全角的空格
+    <br />
+    4&thinsp;d窄空格  em之六分之一宽
+    <br />
+    5&zwnj;e零宽不连字 不打印字符,放在电子文本的两个字符之间，抑制本来会发生的连字，而是以这两个字符原本的字形来绘制。
+    <br />
+    6&zwj;f零宽连字 是一个不打印字符，放在某些需要复杂排版语言（如阿拉伯语、印地语）的两个字符之间，使得这两个本不会发生连字的字符产生了连字效果。
+    <br />
+    <input type="text" ng-model="email" ws-enter="valid(email, 'email')"><input type="button" value="email" ng-click="valid(email, 'email')">
+    <br />
+    <input type="text" ng-model="phone" ws-enter="valid(phone, 'phone')"><input type="button" value="phone" ng-click="valid(phone, 'phone')">
+    <br />
+    <img ng-src="dfsf" id="validImg" ws-Onerror="nofind()" width="30px"></div>
+    <a ng-show="isSupportDownload" href="../img/bg/1.png" download="_5332_">下载</a>
+</div>
+<div class="block">
+    <!-- table-layout: 显示表格单元格、行、列的算法规则  列宽由表格宽度和列宽度设定 -->
+    <table width="88%" style="table-layout:fixed;" class="relative">
+        <tr>
+            <th width="7%">序号</th>
+            <th width="12%">姓名</th>
+            <th width="12%">证件类型</th>
+            <th width="14%">证件号</th>
+            <th width="7%">性别</th>
+            <th width="12%">出生日期</th>
+            <th width="12%">手机号</th>
+            <th width="14%">电子邮箱</th>
+            <th width="7%">操作</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>中秋加班班25</td>
+            <td>&#23621;&#27665;&#36523;&#20221;&#35777;</td>
+            <td>711674650903444564</td>
+            <td>女</td>
+
+            <!-- word-wrap: 在长单词或 URL 地址内部进行换行 -->
+            <td style="word-wrap:break-word;">bzNH6t4DSLhjUq</td>
+            <td style="word-wrap:break-word;">c2VydmVyQ3Nw|bzNH6t4DSLhjUqdg2OLkrnQ3EXceQeppPo0BYItTPtbJPImIgCW3uS9vEw3lQ55cx0kNVdszP42odrIqNoWGTrZFruSmnEmAlwl2UTejZwGZ5Q8yyWx5TmjuarkUbRYXZpypMukoyxX2VPmXJIiHUaZQM6hzssEXlQ1563nEl4w=</td>
+            <td>pp25@qq.com</td>
+            <td><a href="#" >详情</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>中秋加班班54</td>
+            <td>&#23621;&#27665;&#36523;&#20221;&#35777;</td>
+            <td>308926257733043268</td>
+            <td>女</td>
+            <td style="word-wrap:break-word;">c2VydmVyQ3Nw|bzNH6t4DSLhjUqdg2OLkrnQ3EXceQeppPo0BYItTPtbJPImIgCW3uS9vEw3lQ55cx0kNVdszP42odrIqNoWGTrZFruSmnEmAlwl2UTejZwGZ5Q8yyWx5TmjuarkUbRYXZpypMukoyxX2VPmXJIiHUaZQM6hzssEXlQ1563nEl4</td>
+            <td style="word-wrap:break-word;">c2VydmVyQ3Nw|</td>
+            <td>pp54@qq.com</td>
+            <td><a href="#" >详情</a></td>
+        </tr>
+    </table>
+</div>

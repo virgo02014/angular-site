@@ -1,0 +1,21 @@
+body {
+  background-color: #eee;
+}
+
+#child {
+  background-color: red;
+}
+
+#grandChild {
+  background-color: yellow;
+}
+
+#sibling {
+  background-color: pink;
+}
+
+.level {
+  border: solid 1px;
+  margin: 5px;
+  padding: 5px;
+}

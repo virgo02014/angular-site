@@ -1,0 +1,249 @@
+@charset "UTF-8";
+
+@import "normalize";
+@import "brand";
+@import "img";
+@import "progress";
+@import "others";
+@import "error";
+@import url('https://fonts.googleapis.com/css?family=Nova+Oval');
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont/iconfont.eot'); /* IE9*/
+  src: url('iconfont/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont/iconfont.woff') format('woff'), /* chrome, firefox */
+  url('iconfont/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background: transparent !important;
+    height: auto !important;
+}
+ol, ul {
+    list-style:none; /*清除列表默认样式*/
+    margin: 0;
+    padding: 0;
+}
+li {
+    margin: 0;
+    padding: 0;
+}
+.wraper{
+    width:1225px;
+    margin:0 auto;
+}
+.W180 {
+    width: 180px;
+    display: inline-block;
+}
+.W500 {
+    width: 500px;
+    display: inline-block;
+}
+.block {
+    display: block;
+}
+.pointer {
+    cursor: pointer;
+}
+.relative {
+    position: relative;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.top50 {
+    margin-top: 50px;
+}
+.bottom10 {
+    margin-bottom: 10px;
+}
+.clearfix {
+    zoom: 1; /*IE低版本浏览器不支持after伪类所以要加这一句*/
+    &:after {
+        height: 0;
+        content: " ";
+        display: block;
+        overflow: hidden;
+        clear: both;
+    }
+}
+
+header {
+    line-height: 40px;
+    height: 40px;
+    background: black;
+    color: #424242;
+    overflow: hidden;
+}
+
+// .bg-canvas canvas{
+//     position: fixed;
+//     width: 100%;
+//     height: calc(100% - 40px);
+//     top: 0;
+//     margin-top: 40px;
+//     background-color: black;
+// }
+
+.navigator {
+    li {
+        float: left;
+        a {
+            display: inline-block;
+            color: #b0b0b0;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 14px;
+            &:hover {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+        .gavinPlay {
+            display: inline-block;
+            border-radius: 50px;
+            color: #fff;
+            font-weight: bold;
+            float: right;
+            /* 设置默认样式，开启3d硬件加速 */
+            -webkit-transform:translate3d(0,0,0);
+            -moz-transform:translate3d(0,0,0);
+            transform:translate3d(0,0,0);
+            /* 设置动画，animation:动画名称 动画播放时长单位秒或微秒 动画播放的速度曲线linear为匀速 动画播放次数infinite为循环播放; */
+            -webkit-animation:play 3s linear infinite;
+            -moz-animation:play 3s linear infinite;
+            animation:play 3s linear infinite;
+            &:hover {
+                & + audio {
+                    width: 300px !important;
+                    &::-webkit-media-controls-panel {
+                        background-color: #2a2b2b !important;
+                        border-radius: 15px;
+                    }
+                    &::-webkit-media-controls,
+                    &::-webkit-media-controls-enclosure {
+                        width: 300px !important;
+                        display: flex !important;
+                    }
+                    &::-webkit-media-controls-timeline {
+                        margin-right: 5px;
+                        margin-left: 10px;
+                        display: flex !important;
+                    }
+                    &::-webkit-media-controls-volume-slider {
+                        margin: 5px;
+                        display: flex !important;
+                    }
+                }
+            }
+        }
+    }
+    .left li:first-child a {
+        margin-left: 0;
+    }
+    .right li:last-child a {
+        margin-right: 0;
+    }
+}
+@-webkit-keyframes play{
+    0%  {
+        -webkit-transform:rotate(0deg);
+        /*
+        -webkit-transform:rotateX(0deg); // 垂直翻转
+        -webkit-transform:rotateY(0deg); // 水平翻转
+        -webkit-transform:rotate(0deg); // 顺时针旋转
+        -webkit-transform:rotate(0deg); // 逆时针旋转
+        */
+    }
+    100% {
+        -webkit-transform:rotate(360deg);
+        /*
+        -webkit-transform:rotateX(360deg); // 垂直翻转
+        -webkit-transform:rotateY(360deg); // 水平翻转
+        -webkit-transform:rotate(360deg); // 顺时针旋转
+        -webkit-transform:rotate(-360deg); // 逆时针旋转
+        */
+    }
+}
+@-moz-keyframes play{
+    0%  {
+        -moz-transform:rotate(0deg);
+        /*
+        -moz-transform:rotateX(0deg);
+        -moz-transform:rotateY(0deg);
+        -moz-transform:rotate(0deg);
+        -moz-transform:rotate(0deg);
+        */
+    }
+    100% {
+        -moz-transform:rotate(360deg);
+        /*
+        -moz-transform:rotateX(360deg);
+        -moz-transform:rotateY(360deg);
+        -moz-transform:rotate(360deg);
+        -moz-transform:rotate(-360deg);
+        */
+    }
+}
+@keyframes play{
+    0%  {
+        transform:rotate(0deg);
+        /*
+        transform:rotateX(0deg);
+        transform:rotateY(0deg);
+        transform:rotate(0deg);
+        transform:rotate(0deg);
+        */
+    }
+    100% {
+        transform:rotate(360deg);
+        /*
+        transform:rotateX(360deg);
+        transform:rotateY(360deg);
+        transform:rotate(360deg);
+        transform:rotate(-360deg);
+        */
+    }
+}
+audio {
+    display: block !important;
+    width: 0;
+    margin: 4px 0;
+    &::-webkit-media-controls {
+        display: none !important;
+    }
+    &:hover {
+        width: 300px !important;
+        &::-webkit-media-controls-panel {
+            background-color: #2a2b2b !important;
+            border-radius: 15px;
+        }
+        &::-webkit-media-controls,
+        &::-webkit-media-controls-enclosure {
+            width: 300px !important;
+            display: flex !important;
+        }
+        &::-webkit-media-controls-timeline {
+            margin-right: 5px;
+            margin-left: 10px;
+            display: flex !important;
+        }
+        &::-webkit-media-controls-volume-slider {
+            margin: 5px;
+            display: flex !important;
+        }
+    }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jQuery省市区三级联动</title>
+    <!-- <meta name="keywords" content="jQuery联动,PHP省市区" /> -->
+    <!-- <meta name="description" content="本文将给大家介绍一款非常好用的联动插件：cityselect。通过这款联动插件，可以无刷新省市区联动效果。" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="http://www.sucaihuo.com/jquery/css/common.css" /> -->
+    <link rel="stylesheet" type="text/css" href="../../../../bower_components/semantic-ui/dist/semantic.min.css" />
+    <style type="text/css">
+    .demo {
+        width: 80%;
+        margin: 20px auto
+    }
+    </style>
+    <script type="text/javascript" src="../../../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.cityselect.js"></script>
+    <script type="text/javascript" src="../../../../bower_components/semantic-ui/dist/semantic.min.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="demo">
+            <!-- <h3>直接调用</h3> -->
+            <!-- <p>二级联动，默认选项为：请选择</p>
+                <div id="city_1">
+                    <select class="prov ui dropdown"></select>
+                    <select class="city ui dropdown" disabled="disabled"></select>
+                </div>
+                <p>三级联动，默认省份：北京，隐藏无数据的子级select</p>
+                <div id="city_2">
+                    <select class="prov ui dropdown"></select>
+                    <select class="city ui dropdown" disabled="disabled"></select>
+                    <select class="dist ui dropdown" disabled="disabled"></select>
+                </div> -->
+            <p>三级联动，默认选项为：请选择</p>
+            <div id="city_2">
+                <select class="prov ui dropdown"></select>
+                <select class="city ui dropdown" disabled="disabled"></select>
+                <select class="dist ui dropdown" disabled="disabled"></select>
+            </div>
+        </div>
+        <div class="demo">
+            <!-- <h3>设置省份、城市、地区（县）的默认值</h3> -->
+            <!-- <p>二级联动</p>
+                <div id="city_3">
+                    <select class="prov ui dropdown"></select>
+                    <select class="city ui dropdown" disabled="disabled"></select>
+                </div> -->
+            <p>三级联动，默认选项为：辽宁</p>
+            <div id="city_4">
+                <select class="prov ui dropdown"></select>
+                <select class="city ui dropdown" disabled="disabled"></select>
+                <select class="dist ui dropdown" disabled="disabled"></select>
+            </div>
+        </div>
+        <!-- <div class="demo">
+                <h3>自定义下拉选项</h3>
+                <div id="city_5">
+                    <select class="prov"></select>
+                    <select class="city" disabled="disabled"></select>
+                    <select class="dist" disabled="disabled"></select>
+                </div>
+            </div> -->
+    </div>
+    <script type="text/javascript">
+    $(function() {
+
+        // $("#city_1").citySelect({
+        //     nodata: "none",
+        //     required: false
+        // });
+        // $("#city_2").citySelect({
+        //     prov: "辽宁",
+        //     nodata: "none",
+        //     required: false
+        // });
+        $("#city_2").citySelect({
+            nodata: "none",
+            // required: false
+        });
+
+        // $("#city_3").citySelect({
+        //     prov: "辽宁",
+        //     city: "大连"
+        // });
+        $("#city_4").citySelect({
+            prov: "辽宁",
+            city: "大连",
+            dist: "金州区",
+            nodata: "none"
+        });
+        $('#city_4 .ui.dropdown').dropdown();
+        $('#city_4 .prov.ui.dropdown').dropdown('set text', '辽宁');
+
+        // $('.ui.dropdown').dropdown();
+        // $('#city_4 .prov.ui.dropdown').dropdown('set text', '辽宁');
+        // $('#city_4 .city.ui.dropdown').dropdown('set text', '大连');
+        // $('#city_4 .dist.ui.dropdown').dropdown('set text', '金州区');
+
+        // $("#city_5").citySelect({
+        //     url: {"citylist": [
+        //             {"p": "前端课程", "c": [{"n": "HTML5"}, {"n": "CSS3", "a": [{"s": "HTML"}, {"s": "AJAX"}]}, {"n": "JSON"}]},
+        //             {"p": "编程语言", "c": [{"n": "C"}, {"n": "C++"}, {"n": "Python"}, {"n": "PHP"}, {"n": "JAVA"}]},
+        //             {"p": "数据库", "c": [{"n": "Mysql"}, {"n": "SqlServer"}, {"n": "Oracle"}, {"n": "Mssql"}]},
+        //         ]},
+        //     prov: "",
+        //     city: "",
+        //     dist: "",
+        //     nodata: "none"
+        // });
+    });
+    </script>
+</body>
+
+</html>
