@@ -11,7 +11,7 @@ var babel = require("gulp-babel"); // es6 -> es5
 
 // myPower product
 gulp.task('style', function(){
-    return gulp.src('./style/*.scss')
+    return gulp.src('./style/main.scss')
         .pipe(sass())
         .pipe(concat('style.css'))
         .pipe(cssminify({
@@ -46,6 +46,9 @@ gulp.task('default', ['style', 'module', 'common'], function(){
         },
         open: false
     });
+    gulp.watch('style/*.scss', ['style']);
+    gulp.watch('script/module/*.js', ['module']);
+    gulp.watch('script/common/*.js', ['common']);
 });
 
 // myPower dev
