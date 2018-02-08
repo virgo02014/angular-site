@@ -83,8 +83,7 @@ angular
             $scope.nofind = function(){
                 var imgObj = document.querySelector("#validImg");
                 if(!imgObj) return;
-                imgObj.src = '../../img/bg/1.png';
-                console.error('img src error', imgObj.src);
+                imgObj.src = './img/bg/1.png';
                 return;
                 // imgObj.onerror = undefined;
                 // $rootScope.pictures.push("./img/GoodsImage_NoFile.jpg");

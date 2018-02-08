@@ -54,11 +54,11 @@
             }
         }).state({
             name: 'find-color',
-            url: '/findColor',
+            url: '/color',
             views: {
                 'content': {
                     controller: 'findColorCtrl',
-                    templateUrl: '/html/getColor.html'
+                    templateUrl: '/html/color.html'
                 }
             }
         }).state({
@@ -71,12 +71,12 @@
                 }
             }
         }).state({
-            name: 'ngOptions',
-            url: '/ngOptions',
+            name: 'options',
+            url: '/options',
             views: {
                 'content': {
                     controller: 'ngOptionsCtrl',
-                    templateUrl: '/html/ngOptions.html'
+                    templateUrl: '/html/options.html'
                 }
             }
         }).state({
