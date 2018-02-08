@@ -121,9 +121,6 @@ angular
         $.cookie('i', 32);
         console.log($.cookie('i'));
 
-        $scope.number = '1111 ';
-        $scope.num = '1111 ';
-
         $scope.$on('$destroy', function(){
             $scope.qrcode.clear(); //仅在不支持 Canvas 的浏览器下有效
             $scope.qrcode.makeCode('new content'); //设置二维码内容
