@@ -1,4 +1,4 @@
-var WEBSITE_FORM_VALIDATION_RULES = {
+WEBSITE_FORM_VALIDATION_RULES = {
     common: {
             // ref: https://en.wikipedia.org/wiki/Telephone_numbers_in_China
             // https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E5%86%85%E5%9C%B0%E7%A7%BB%E5%8A%A8%E7%BB%88%E7%AB%AF%E9%80%9A%E8%AE%AF%E5%8F%B7%E7%A0%81
@@ -10,7 +10,7 @@ var WEBSITE_FORM_VALIDATION_RULES = {
             // ref: https://en.wikipedia.org/wiki/Toll-free_telephone_number
             tollFreePhomeNumber: '/^[48]00\\d{7}$/',
             validationQQ: '/^[1-9]\\d{4,9}$/',
-            email: /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+            email: /^([a-zA-Z0-9_\\.\\-])+\\@(([a-zA-Z0-9\\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
             email1: /^(\w+@\w.\w+)*$/,
             email2: /^[0-9]*[1-9][0-9]*$/, //不许为0
             phone: /^((0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8})*$/

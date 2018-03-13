@@ -15,7 +15,7 @@ angular
           {
             name: 'Gener Delosreyes',
             avatar: 'svg-3',
-            content: "Raw denim pour-over readymade Etsy Pitchfork. Four dollar toast pickled locavore bitters McSweeney's blog. Try-hard art party Shoreditch selfies. Odd Future butcher VHS, disrupt pop-up Thundercats chillwave vinyl jean shorts taxidermy master cleanse letterpress Wes Anderson mustache Helvetica. Schlitz bicycle rights chillwave irony lumberhungry Kickstarter next level sriracha typewriter Intelligentsia, migas kogi heirloom tousled. Disrupt 3 wolf moon lomo four loko. Pug mlkshk fanny pack literally hoodie bespoke, put a bird on it Marfa messenger bag kogi VHS."
+            content: 'Raw denim pour-over readymade Etsy Pitchfork. Four dollar toast pickled locavore bitters McSweeney\'s blog. Try-hard art party Shoreditch selfies. Odd Future butcher VHS, disrupt pop-up Thundercats chillwave vinyl jean shorts taxidermy master cleanse letterpress Wes Anderson mustache Helvetica. Schlitz bicycle rights chillwave irony lumberhungry Kickstarter next level sriracha typewriter Intelligentsia, migas kogi heirloom tousled. Disrupt 3 wolf moon lomo four loko. Pug mlkshk fanny pack literally hoodie bespoke, put a bird on it Marfa messenger bag kogi VHS.'
           },
           {
             name: 'Lawrence Ray',
@@ -30,7 +30,7 @@ angular
           {
             name: 'Gani Ferrer',
             avatar: 'svg-4',
-            content: "Lebowski ipsum yeah? What do you think happens when you get rad? You turn in your library card? Get a new driver's license? Stop being awesome? Dolor sit amet, consectetur adipiscing elit praesent ac magna justo pellentesque ac lectus. You don't go out and make a living dressed like that in the middle of a weekday. Quis elit blandit fringilla a ut turpis praesent felis ligula, malesuada suscipit malesuada."
+            content: 'Lebowski ipsum yeah? What do you think happens when you get rad? You turn in your library card? Get a new driver\'s license? Stop being awesome? Dolor sit amet, consectetur adipiscing elit praesent ac magna justo pellentesque ac lectus. You don\'t go out and make a living dressed like that in the middle of a weekday. Quis elit blandit fringilla a ut turpis praesent felis ligula, malesuada suscipit malesuada.'
           }
         ];
 
@@ -90,27 +90,27 @@ angular
             // onreadystatechange 存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    txt = "<table border='1'><tr><th>Title</th><th>Author</th></tr>";
-                    x = xmlhttp.responseXML.documentElement.getElementsByTagName("book");
+                    txt = '<table border="1"><tr><th>Title</th><th>Author</th></tr>';
+                    x = xmlhttp.responseXML.documentElement.getElementsByTagName('book');
                     for (i = 0; i < x.length; i++) {
-                        txt = txt + "<tr>";
-                        xx = x[i].getElementsByTagName("title"); {
+                        txt = txt + '<tr>';
+                        xx = x[i].getElementsByTagName('title'); {
                             try {
-                                txt = txt + "<td>" + xx[0].firstChild.nodeValue + "</td>";
+                                txt = txt + '<td>' + xx[0].firstChild.nodeValue + '</td>';
                             } catch (er) {
-                                txt = txt + "<td> </td>";
+                                txt = txt + '<td> </td>';
                             }
                         }
-                        xx = x[i].getElementsByTagName("author"); {
+                        xx = x[i].getElementsByTagName('author'); {
                             try {
-                                txt = txt + "<td>" + xx[0].firstChild.nodeValue + "</td>";
+                                txt = txt + '<td>' + xx[0].firstChild.nodeValue + '</td>';
                             } catch (er) {
-                                txt = txt + "<td> </td>";
+                                txt = txt + '<td> </td>';
                             }
                         }
-                        txt = txt + "</tr>";
+                        txt = txt + '</tr>';
                     }
-                    txt = txt + "</table>";
+                    txt = txt + '</table>';
                     document.getElementById('myDiv').innerHTML = txt;
 
                     // var xmlDoc = xmlhttp.responseXML;
@@ -123,7 +123,7 @@ angular
                 }
             };
 
-            xmlhttp.open("GET","/script/file/books.xml",true);
+            xmlhttp.open('GET','/script/file/books.xml',true);
             xmlhttp.send();
         };
 

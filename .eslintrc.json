@@ -1,0 +1,74 @@
+// http://eslint.org/docs/rules/
+{
+    "extends": "eslint:recommended",
+    "plugins": [],
+    "env": {
+            "browser": true,
+            "commonjs": true,
+            "node": true,
+            "es6": true,
+            "jquery": true,
+            "amd": true
+    },
+    "parser": "esprima",
+    // "parser": "babel-eslint",
+    "parserOptions": {
+            "ecmaVersion": 6,
+            "sourceType": "script",
+            "ecmaFeatures": {
+                "jsx": false
+            }
+    },
+    "globals": {
+             "API_DOMAIN": true,
+             "VC_API_DOMAIN": true,
+             "FB_GLOBAL_CONFIG": true,
+             "FB_STATIC_DOMAIN": true,
+             "FB_STATIC_HTTPS_DOMAIN": true,
+             "FB_FORM_VALIDATION_RULES": true,
+             "WEBSITE_FORM_VALIDATION_RULES": true,
+             "ENDPOINTS": true,
+             "CryptoJS": true,
+             "Qiniu": true,
+             "jQuery": true,
+             "$": true,
+             "angular": true,
+             "bowser": true,
+             "layer": true,
+             "laypage": true,
+             "feiboCommonFuncs": true,
+             "echarts": true,
+             "createjs": true,
+             "QRCode": true
+    },
+    "rules": {
+        "semi": "warn",
+        "no-console": "off",
+        "no-extra-parens": "warn",
+        "accessor-pairs": "warn",
+        "array-callback-return": "error",
+        "block-scoped-var": "warn",
+        "default-case": "warn",
+        "guard-for-in": "warn",
+        "no-caller": "warn",
+        "no-eval": "warn",
+        "no-implied-eval": "warn",
+        "no-loop-func": "warn",
+        "no-return-assign": "warn",
+        "no-useless-call": "warn",
+        "no-with": "error",
+        "radix": "warn",
+        "wrap-iife": "warn",
+        "no-label-var": "error",
+        "no-undef-init": "error",
+        "no-undefined": "off",
+        "no-unused-vars": ["warn", { "vars": "all", "args": "none" }],
+        "key-spacing": "warn",
+        "linebreak-style": "error",
+        "new-cap": "warn",
+        "new-parens": "error",
+        "no-unneeded-ternary": "warn",
+        "space-infix-ops": "warn",
+        "quotes": [1, "single"]
+    }
+}

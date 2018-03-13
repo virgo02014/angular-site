@@ -81,7 +81,7 @@ angular
             };
 
             $scope.nofind = function(){
-                var imgObj = document.querySelector("#validImg");
+                var imgObj = document.querySelector('#validImg');
                 if(!imgObj) return;
                 imgObj.src = './img/bg/1.png';
                 return;
@@ -98,6 +98,6 @@ angular
 
             console.warn($scope.foo.hasOwnProperty('bar')); // 始终返回 false
             // 如果担心这种情况，可以直接使用原型链上真正的 hasOwnProperty 方法
-            console.warn(({}).hasOwnProperty.call($scope.foo, 'bar')); // true
+            console.warn({}.hasOwnProperty.call($scope.foo, 'bar')); // true
             console.warn(Object.prototype.hasOwnProperty.call($scope.foo, 'bar')); // true
 }]);

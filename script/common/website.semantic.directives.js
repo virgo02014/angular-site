@@ -14,8 +14,8 @@
      * @private
      */
     function _extendconfig(defineconfig, options) {
-        if (!!options) {
-            for (var x in options) {
+        if (options) {
+            for (let x in options) {
                 if (defineconfig.hasOwnProperty(x)) {
                     defineconfig[x] = options[x];
                 } else {
@@ -52,7 +52,7 @@
                 },
                 link: function (scope) {
                     var defineconfig = {
-                        elem:'',
+                        elem: '',
                         event: 'click', //触发事件
                         format: 'YYYY-MM-DD hh:mm:ss', //日期格式
                         istime: true, //是否开启时间选择
@@ -220,31 +220,31 @@
             '$templateCache',
             function ($templateCache) {
                 $templateCache.put('template/treeGrid/treeGrid.html',
-                    "<div class=\"table-responsive\">\n" +
-                    " <table class=\"table ui tree-grid\">\n" +
-                    "   <thead>\n" +
-                    "     <tr>\n" +
-                    "       <th><a ng-if=\"expandingProperty.sortable\" ng-click=\"sortBy(expandingProperty)\">{{expandingProperty.displayName || expandingProperty.field || expandingProperty}}</a><span ng-if=\"!expandingProperty.sortable\">{{expandingProperty.displayName || expandingProperty.field || expandingProperty}}</span><i ng-if=\"expandingProperty.sorted\" class=\"{{expandingProperty.sortingIcon}} pull-right\"></i></th>\n" +
-                    "       <th ng-repeat=\"col in colDefinitions\"><a ng-if=\"col.sortable\" ng-click=\"sortBy(col)\">{{col.displayName || col.field}}</a><span ng-if=\"!col.sortable\">{{col.displayName || col.field}}</span><i ng-if=\"col.sorted\" class=\"{{col.sortingIcon}} pull-right\"></i></th>\n" +
-                    "     </tr>\n" +
-                    "   </thead>\n" +
-                    "   <tbody>\n" +
-                    "     <tr ng-repeat=\"row in tree_rows | searchFor:$parent.filterString:expandingProperty:colDefinitions track by row.branch.uid\"\n" +
-                    "       ng-class=\"'level-' + {{ row.level }} + (row.branch.selected ? ' active':'')\" class=\"tree-grid-row\">\n" +
-                    "       <td><a ng-click=\"user_clicks_branch(row.branch)\"><i ng-class=\"row.tree_icon\"\n" +
-                    "              ng-click=\"row.branch.expanded = !row.branch.expanded\"\n" +
-                    "              class=\"indented tree-icon\"></i></a><span class=\"indented tree-label\" ng-click=\"on_user_click(row.branch)\">\n" +
-                    "             {{row.branch[expandingProperty.field] || row.branch[expandingProperty]}}</span>\n" +
-                    "       </td>\n" +
-                    "       <td ng-repeat=\"col in colDefinitions\">\n" +
-                    "         <div ng-if=\"col.cellTemplate\" compile=\"col.cellTemplate\" cell-template-scope=\"col.cellTemplateScope\"></div>\n" +
-                    "         <div ng-if=\"!col.cellTemplate\">{{row.branch[col.field]}}</div>\n" +
-                    "       </td>\n" +
-                    "     </tr>\n" +
-                    "   </tbody>\n" +
-                    " </table>\n" +
-                    "</div>\n" +
-                    "");
+                    '<div class="table-responsive">\n' +
+                    ' <table class="table ui tree-grid">\n' +
+                    '   <thead>\n' +
+                    '     <tr>\n' +
+                    '       <th><a ng-if="expandingProperty.sortable" ng-click="sortBy(expandingProperty)">{{expandingProperty.displayName || expandingProperty.field || expandingProperty}}</a><span ng-if="!expandingProperty.sortable">{{expandingProperty.displayName || expandingProperty.field || expandingProperty}}</span><i ng-if="expandingProperty.sorted" class="{{expandingProperty.sortingIcon}} pull-right"></i></th>\n' +
+                    '       <th ng-repeat="col in colDefinitions"><a ng-if="col.sortable" ng-click="sortBy(col)">{{col.displayName || col.field}}</a><span ng-if="!col.sortable">{{col.displayName || col.field}}</span><i ng-if="col.sorted" class="{{col.sortingIcon}} pull-right"></i></th>\n' +
+                    '     </tr>\n' +
+                    '   </thead>\n' +
+                    '   <tbody>\n' +
+                    '     <tr ng-repeat="row in tree_rows | searchFor:$parent.filterString:expandingProperty:colDefinitions track by row.branch.uid"\n' +
+                    '         ng-class="\'level-\' + {{ row.level }} + (row.branch.selected ? \' active\':\'\')" class="tree-grid-row">\n' +
+                    '       <td><a ng-click="user_clicks_branch(row.branch)"><i ng-class="row.tree_icon"\n' +
+                    '              ng-click="row.branch.expanded = !row.branch.expanded"\n' +
+                    '              class="indented tree-icon"></i></a><span class="indented tree-label" ng-click="on_user_click(row.branch)">\n' +
+                    '             {{row.branch[expandingProperty.field] || row.branch[expandingProperty]}}</span>\n' +
+                    '       </td>\n' +
+                    '       <td ng-repeat="col in colDefinitions">\n' +
+                    '         <div ng-if="col.cellTemplate" compile="col.cellTemplate" cell-template-scope="col.cellTemplateScope"></div>\n' +
+                    '         <div ng-if="!col.cellTemplate">{{row.branch[col.field]}}</div>\n' +
+                    '       </td>\n' +
+                    '     </tr>\n' +
+                    '   </tbody>\n' +
+                    ' </table>\n' +
+                    '</div>\n' +
+                    '');
             }
         ]);
     angular
@@ -418,13 +418,13 @@
                         };
                         /* sorting methods */
                         scope.sortBy = function (col) {
-                            if (col.sortDirection === "asc") {
+                            if (col.sortDirection === 'asc') {
                                 sort_recursive(scope.treeData, col, true);
-                                col.sortDirection = "desc";
+                                col.sortDirection = 'desc';
                                 col.sortingIcon = attrs.sortedDesc;
                             } else {
                                 sort_recursive(scope.treeData, col, false);
-                                col.sortDirection = "asc";
+                                col.sortDirection = 'asc';
                                 col.sortingIcon = attrs.sortedAsc;
                             }
                             col.sorted = true;
@@ -438,21 +438,21 @@
                         };
                         var sort_by = function (col, descending) {
                             var direction = !descending ? 1 : -1;
-                            if (col.sortingType === "custom" && typeof col.sortingFunc === "function") {
+                            if (col.sortingType === 'custom' && typeof col.sortingFunc === 'function') {
                                 return function (a, b) {
                                     return col.sortingFunc(a, b) * direction;
                                 };
                             }
                             var key = function (x) {
-                                return (x[col.field] === null ? "" : x[col.field].toLowerCase());
+                                return (x[col.field] === null ? '' : x[col.field].toLowerCase());
                             };
                             switch (col.sortingType) {
-                                case "number":
+                                case 'number':
                                     key = function (x) {
                                         return parseFloat(x[col.field]);
                                     };
                                     break;
-                                case "date":
+                                case 'date':
                                     key = function (x) {
                                         return new Date(x[col.field]);
                                     };
@@ -461,7 +461,7 @@
                             return function (a, b) {
                                 return a = key(a), b = key(b), direction * ((a > b) - (b > a));
                             };
-                        }
+                        };
                         var resetSorting = function (sortedCol) {
                             var arraySize = scope.colDefinitions.length;
                             for (var i = 0; i < arraySize; i++) {
@@ -471,7 +471,7 @@
                                     col.sortDirection = "none";
                                 }
                             }
-                        }
+                        };
                         /* end of sorting methods */
                         get_parent = function (child) {
                             var parent;
@@ -479,7 +479,7 @@
                             if (child.parent_uid) {
                                 for_each_branch(function (b) {
                                     if (b.uid === child.parent_uid) {
-                                        return parent = b;
+                                        return parent == b;
                                     }
                                 });
                             }
@@ -495,7 +495,7 @@
                         };
                         expand_all_parents = function (child) {
                             return for_all_ancestors(child, function (b) {
-                                return b.expanded = true;
+                                return b.expanded == true;
                             });
                         };
                         scope.tree_rows = [];
@@ -504,7 +504,7 @@
                             var add_branch_to_list, root_branch, _i, _len, _ref, _results;
                             for_each_branch(function (b, level) {
                                 if (!b.uid) {
-                                    return b.uid = "" + Math.random();
+                                    return b.uid == '' + Math.random();
                                 }
                             });
                             for_each_branch(function (b) {
@@ -534,7 +534,7 @@
                                                 return e;
                                             }
                                         };
-                                        return branch.children = (function () {
+                                        return branch.children == (function () {
                                             var _i, _len, _ref, _results;
                                             _ref = branch.children;
                                             _results = [];
@@ -543,10 +543,10 @@
                                                 _results.push(f(child));
                                             }
                                             return _results;
-                                        })();
+                                        }());
                                     }
                                 } else {
-                                    return branch.children = [];
+                                    return branch.children == [];
                                 }
                             });
                             add_branch_to_list = function (level, branch, visible) {
@@ -603,19 +603,19 @@
                         n = scope.treeData.length;
                         for_each_branch(function (b, level) {
                             b.level = level;
-                            return b.expanded = b.level < expand_level;
+                            return b.expanded == b.level < expand_level;
                         });
                         if (scope.treeControl != null) {
                             if (angular.isObject(scope.treeControl)) {
                                 tree = scope.treeControl;
                                 tree.expand_all = function () {
                                     return for_each_branch(function (b, level) {
-                                        return b.expanded = true;
+                                        return b.expanded == true;
                                     });
                                 };
                                 tree.collapse_all = function () {
                                     return for_each_branch(function (b, level) {
-                                        return b.expanded = false;
+                                        return b.expanded == false;
                                     });
                                 };
                                 tree.get_first_branch = function () {
@@ -828,7 +828,7 @@
                                         }
                                     }
                                 };
-                                return tree.select_prev_branch = function (b) {
+                                return tree.select_prev_branch == function (b) {
                                     var prev;
                                     if (b == null) {
                                         b = selected_branch;
@@ -923,7 +923,7 @@
                 }
             }
             function checkItem(item, filterString, col) {
-                if (col.sortingType === "number") {
+                if (col.sortingType === 'number') {
                     if (item.branch[col.field] != null && parseFloat(item.branch[col.field]) === parseFloat(filterString)) {
                         return true;
                     }
@@ -934,4 +934,4 @@
                 }
             }
         });
-})();
+}());

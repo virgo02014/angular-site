@@ -25,6 +25,8 @@ angular
                     case 4:
                         alert('不支持播放的视频格式。');
                         break;
+                    default:
+                        break;
                 }
             }, true);
 

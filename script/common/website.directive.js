@@ -46,19 +46,19 @@ angular.module('website.directive', [])
             restrict: 'E',
             template: '<p>Hello {{number}}!</p>',
             controller: function($scope, $element) {
-                $scope.number = $scope.number + "22222 ";
+                $scope.number = $scope.number + '22222 ';
             },
             link: function(scope, el, attr) {
-                scope.number = scope.number + "33333 ";
+                scope.number = scope.number + '33333 ';
             },
             // controller先运行，compile后运行，link不运行(link就是compile中的postLink)
             compile: function(element, attributes) {
                 return {
                     pre: function preLink(scope, element, attributes) {
-                        scope.number = scope.number + "44444 ";
+                        scope.number = scope.number + '44444 ';
                     },
                     post: function postLink(scope, element, attributes) {
-                        scope.number = scope.number + "55555 ";
+                        scope.number = scope.number + '55555 ';
                     }
                 };
             }
@@ -166,11 +166,11 @@ angular.module('website.directive', [])
             restrict: 'E',
             template: '<p>Hello {{num}}!</p>',
             controller: function($scope, $element) {
-                $scope.num = $scope.num + "22222 ";
+                $scope.num = $scope.num + '22222 ';
             },
             // controller先运行，link后运行，link和compile不兼容。compile改变dom,link事件的触发和绑定
             link: function(scope, el, attr) {
-                scope.num = scope.num + "33333 ";
+                scope.num = scope.num + '33333 ';
             }
         };
     })
@@ -222,9 +222,9 @@ angular.module('website.directive', [])
             });
         };
     }])
-    .directive("wsOnerror", function(){
+    .directive('wsOnerror', function(){
         return function(scope, element, attr){
-            element.bind("error", accept);
+            element.bind('error', accept);
 
             function accept(e){
                 e.preventDefault();

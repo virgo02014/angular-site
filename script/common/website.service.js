@@ -9,9 +9,9 @@ angular.module('website.service', [])
 
                 if (type == 'getMonth') {
                     start = start.split('-');
-                    start = parseInt(start[0]) * 12 + parseInt(start[1]);
+                    start = parseInt(start[0], 10) * 12 + parseInt(start[1], 10);
                     end = end.split('-');
-                    end = parseInt(end[0]) * 12 + parseInt(end[1]);
+                    end = parseInt(end[0], 10) * 12 + parseInt(end[1], 10);
                     days = Math.abs(end - start);
                 } else if (type == 'getDay') {
                     days = (nowEnd - nowStart) / (24 * 60 * 60 * 1000);
@@ -180,13 +180,15 @@ angular.module('website.service', [])
                 for(var i = 0 ; i < length; i++){
 
                     //5.闭包添加事件
-                    (function(index){
+                    var func = (function(index){
                         btn[index].onmouseover = function(){
 
                             //6.执行move函数并传入索引
                             move(index);
                         };
-                    })(i);
+                    }(i));
+
+                    console.log(func);
                 }
 
                 //7.自定义函数move，该函数是核心，根据索引值去查找对应的元素并设置样式
@@ -253,26 +255,26 @@ angular.module('website.service', [])
             CombustionParticles: function(){
                 'use strict';
                 function _classCallCheck(instance, Constructor) {
-                    if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); }
+                    if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); }
                 }
 
                 //console.clear();
-                var cv = document.querySelector("canvas"),
-                    ctx = cv.getContext("2d"),
+                var cv = document.querySelector('canvas'),
+                    ctx = cv.getContext('2d'),
                     TAU = 2 * Math.PI,
                     ps = [],
                     PR = devicePixelRatio,
                     N = 1000 / PR,
-                    M = 4,
+                    // M = 4,
                     R = 20 * PR,
                     Q = 16;
 
-                var lt = 0,
-                    mx = undefined,
-                    my = undefined,
-                    md = true;
+                // var lt = 0;
+                var mx;
+                var my;
+                var md = true;
 
-                var P = function () {
+                var P = (function () {
                     function P(x, y, c) {
                         _classCallCheck(this, P);
                         this.x = 0;
@@ -284,7 +286,7 @@ angular.module('website.service', [])
                       this.sx = x;
                       this.sy = y;
                       this.c = ctx.createRadialGradient(0, 0, R, 0, 0, 0);
-                      this.c.addColorStop(0, "black");
+                      this.c.addColorStop(0, 'black');
                       this.c.addColorStop(1, c);
                       this.t = t;
                       this.dx = 2 * PR * (Math.random() - 0.5);
@@ -312,7 +314,7 @@ angular.module('website.service', [])
                     };
 
                     return P;
-                }();
+                }());
 
                 function paint(t) {
                     requestAnimationFrame(paint);
@@ -326,15 +328,15 @@ angular.module('website.service', [])
                         c = Math.round(Q * 1 * Math.random());*/
 
                     if (ps.length < N && md) {
-                      ps.push(new P(mx, my, "rgb(" + a + "," + b + "," + c + ")"));
+                      ps.push(new P(mx, my, 'rgb(' + a + ',' + b + ',' + c + ')'));
                     }
 
                     ctx.clearRect(0, 0, cv.width, cv.height);
-                    ctx.globalCompositeOperation = "screen";
+                    ctx.globalCompositeOperation = 'screen';
                     ps.forEach(function (p, i) {
                       p.paint(dt);
                       if (md && (p.x < 0 || p.x >= cv.width || p.y < 0 || p.y >= cv.height)) {
-                        p.init(mx, my, "rgb(" + a + "," + b + "," + c + ")", dt);
+                        p.init(mx, my, 'rgb(' + a + ',' + b + ',' + c + ')', dt);
                       }
                     });
                 }
@@ -345,17 +347,17 @@ angular.module('website.service', [])
                     cv.height = b.height * PR;
                 }
 
-                window.addEventListener("resize", resize, false);
-                window.addEventListener("mousemove", function (e) {
+                window.addEventListener('resize', resize, false);
+                window.addEventListener('mousemove', function (e) {
                     var b = cv.getBoundingClientRect();
                     mx = (e.clientX - b.left) * cv.width / b.width;
                     my = (e.clientY - b.top) * cv.height / b.height;
                 }, false);
-                window.addEventListener("mousedown", function (e) {
-                    return md = true;
+                window.addEventListener('mousedown', function (e) {
+                    return md == true;
                 }, false);
-                window.addEventListener("mouseup", function (e) {
-                    return md = false;
+                window.addEventListener('mouseup', function (e) {
+                    return md == false;
                 }, false);
                 resize();
                 mx = 0.5 * cv.width;

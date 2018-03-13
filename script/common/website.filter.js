@@ -1,7 +1,7 @@
 angular.module('website.filter', [])
     .filter('isComprehensiveCourse', function(){
            return function(input){
-                  return (+input) === 1;
+                  return +input === 1;
            };
     })
     .filter('fbSubstring', function(){

@@ -88,14 +88,14 @@ angular
         };
 
         $scope.animalsObject = {
-            1:{
+            1: {
                 id: '00001',
                 name: '猫',
                 sex: '雌',
                 food: '鱼',
                 favor: '玩球'
             },
-            2:{
+            2: {
                 id: '00002',
                 name: '狗',
                 sex: '雄',
@@ -109,7 +109,7 @@ angular
                 food: '胡萝卜',
                 favor: '刨洞'
             },
-            4:{
+            4: {
                 id: '00004',
                 name: '狮',
                 sex: '雄',
