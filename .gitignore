@@ -8,5 +8,5 @@ node_modules
 .sass-cache/
 npm-debug.log
 dest/common.js
-dest/module.js
+dest/controller.js
 dest/style.css

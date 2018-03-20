@@ -30,13 +30,13 @@
 
         function config($mdIconProvider, $mdThemingProvider){
             $mdIconProvider
-              .defaultIconSet("./style/svg/avatars.svg", 128)
-              .icon("menu", "./style/svg/menu.svg", 24)
-              .icon("share", "./style/svg/share.svg", 24)
-              .icon("google_plus", "./style/svg/google_plus.svg", 24)
-              .icon("hangouts", "./style/svg/hangouts.svg", 24)
-              .icon("twitter", "./style/svg/twitter.svg", 24)
-              .icon("phone", "./style/svg/phone.svg", 24);
+              .defaultIconSet('./style/svg/avatars.svg', 128)
+              .icon('menu', './style/svg/menu.svg', 24)
+              .icon('share', './style/svg/share.svg', 24)
+              .icon('google_plus', './style/svg/google_plus.svg', 24)
+              .icon('hangouts', './style/svg/hangouts.svg', 24)
+              .icon('twitter', './style/svg/twitter.svg', 24)
+              .icon('phone', './style/svg/phone.svg', 24);
 
             $mdThemingProvider.theme('default')
               .primaryPalette('brown')

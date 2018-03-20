@@ -245,3 +245,77 @@ $width: 12px;
         }
     }
 }
+
+
+/* error page start */
+@-webkit-keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
+.fadeIn { -webkit-animation-name: fadeIn; animation-name: fadeIn; }
+
+@-webkit-keyframes fadeInUp { from { opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0); } to { opacity: 1; -webkit-transform: none; transform: none; }}
+@keyframes fadeInUp { from { opacity: 0; -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0); } to { opacity: 1; -webkit-transform: none; transform: none; }}
+.fadeInUp { -webkit-animation-name: fadeInUp; animation-name: fadeInUp; }
+
+.error_page {
+    background: url(../img/propeller-bg.jpg) center no-repeat #174eaa;
+    height: 100%;
+    font-family: Nova Oval !important;
+    font-size: 24px;
+    .content {
+        padding: 165px 0;
+    }
+    .header-primary {
+        padding: 8px 0;
+        text-align: center;
+        & > a {
+            transition: opacity 0.3s ease-in-out 0s;
+        }
+        .logo {
+            animation: 1.2s linear 0s normal none 1 running fadeInUp;
+        }
+    }
+    .content-primary {
+        margin: 0 auto;
+        padding: 0px 0 224px;
+        text-align: center;
+        color:#fff;
+        .section-footer {
+            margin-top: 40px;
+        }
+        h1.title {
+            color:#fff;
+            font-size: 48px;
+        }
+        & > h1 {
+            animation: 1.7s linear 0s normal none 1 running fadeInUp;margin-bottom: 20px;
+        }
+        & > p {
+            font-weight: bold;
+            animation:1.9s linear 0s normal none 1 running fadeInUp;
+        }
+        .section-footer {
+            .btn {
+                margin:0 8px;
+                min-width:160px;
+                font-weight: bold;
+                &.btn-primary {
+                    background: #4285f4;
+                    animation:2.4s linear 0s normal none 1 running fadeIn;
+                    &:hover {
+                        background-color: #4e6cef;
+                        border-color: transparent;
+                    }
+                }
+                &.btn-secondary {
+                    background: #3c87da;
+                    color: #fff;
+                    animation:2.8s linear 0s normal none 1 running fadeIn;
+                    &:hover {
+                        background-color: #1e77d8;
+                    }
+                }
+            }
+        }
+    }
+}
+/* error page end */

@@ -23,23 +23,23 @@ gulp.task('style', function(){
         .pipe(gulp.dest('./dest'));
 });
 
-gulp.task('module', function(){
-    return gulp.src('./script/module/*.js')
+gulp.task('controller', function(){
+    return gulp.src('./static/controller/**/*.js')
         .pipe(babel({compact: false}))
-        .pipe(concat('module.js'))
+        .pipe(concat('controller.js'))
         .pipe(uglify({outSourceMap: false}))
         .pipe(gulp.dest('./dest'));
 });
 
 gulp.task('common', function(){
-    return gulp.src('./script/common/*.js')
+    return gulp.src('./static/common/*.js')
         .pipe(babel({compact: false}))
         .pipe(concat('common.js'))
         .pipe(uglify({outSourceMap: false}))
         .pipe(gulp.dest('./dest'));
 });
 
-gulp.task('default', ['style', 'module', 'common'], function(){
+gulp.task('default', ['style', 'controller', 'common'], function(){
     browserSync.init({
         server: {
             baseDir: './'
@@ -47,8 +47,8 @@ gulp.task('default', ['style', 'module', 'common'], function(){
         open: false
     });
     gulp.watch('style/*.scss', ['style']);
-    gulp.watch('script/module/*.js', ['module']);
-    gulp.watch('script/common/*.js', ['common']);
+    gulp.watch('static/controller/**/*.js', ['controller']);
+    gulp.watch('static/common/*.js', ['common']);
 });
 
 // myPower dev
@@ -74,19 +74,19 @@ gulp.task('bem', function(){
         .pipe(gulp.dest('./dest'));
 });
 
-gulp.task('module:dev', function(){
-    return gulp.src('./script/module/*.js')
+gulp.task('controller:dev', function(){
+    return gulp.src('./static/controller/**/*.js')
         .pipe(plumber())
         .pipe(babel({compact: false}))
         .pipe(sourcemaps.init())
-        .pipe(concat('module.js'))
+        .pipe(concat('controller.js'))
         .pipe(uglify({outSourceMap: false}))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dest'));
 });
 
 gulp.task('common:dev', function(){
-    return gulp.src('./script/common/*.js')
+    return gulp.src('./static/common/*.js')
         .pipe(plumber())
         .pipe(babel({compact: false}))
         .pipe(sourcemaps.init())
@@ -96,7 +96,7 @@ gulp.task('common:dev', function(){
         .pipe(gulp.dest('./dest'));
 });
 
-gulp.task('default:dev', ['style:dev', 'module:dev', 'common:dev'], function(){
+gulp.task('default:dev', ['style:dev', 'controller:dev', 'common:dev'], function(){
     browserSync.init({
         server: {
             baseDir: './'
@@ -104,6 +104,6 @@ gulp.task('default:dev', ['style:dev', 'module:dev', 'common:dev'], function(){
         open: false
     });
     gulp.watch('style/*.scss', ['style:dev']);
-    gulp.watch('script/module/*.js', ['module:dev']);
-    gulp.watch('script/common/*.js', ['common:dev']);
+    gulp.watch('static/controller/**/*.js', ['controller:dev']);
+    gulp.watch('static/common/*.js', ['common:dev']);
 });

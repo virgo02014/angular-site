@@ -1,6 +1,6 @@
 angular
 	.module('website.ctrl')
-	.controller('brandCtrl', ['$scope', function($scope){
+	.controller('truningCtrl', ['$scope', function($scope){
 
 		// 获取UL元素
 		var roles = document.getElementById('brands');

@@ -4,7 +4,10 @@
     angular
         .module('website.router')
         .config(['$stateProvider', index_config])
-        .config(['$stateProvider', websitetpl])
+        .config(['$stateProvider', tech_htmlCss])
+        .config(['$stateProvider', tech_js])
+        .config(['$stateProvider', tech_angular])
+        .config(['$stateProvider', tech_other])
         .config(['$stateProvider', error_config])
         .config([
             '$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
@@ -27,29 +30,41 @@
             views: {
                 'content': {
                     controller: 'indexCtrl',
-                    templateUrl: '/html/index.html'
+                    templateUrl: '/html/index/index.html'
                 }
             }
         });
     }
 
-    function websitetpl($stateProvider){
+    function tech_htmlCss($stateProvider){
         $stateProvider.state({
             name: 'img',
             url: '/img',
             views: {
                 'content': {
                     controller: 'imgCtrl',
-                    templateUrl: '/html/img.html'
+                    templateUrl: '/html/htmlcss/img.html'
                 }
             }
         }).state({
-            name: 'truning-brand',
+            name: 'page',
+            url: '/page',
+            views: {
+                'content': {
+                    templateUrl: '/html/htmlcss/page.html'
+                }
+            }
+        });
+    }
+
+    function tech_js($stateProvider){
+        $stateProvider.state({
+            name: 'truning',
             url: '/turning',
             views: {
                 'content': {
-                    controller: 'brandCtrl',
-                    templateUrl: '/html/brand.html'
+                    controller: 'truningCtrl',
+                    templateUrl: '/html/js/truning.html'
                 }
             }
         }).state({
@@ -58,25 +73,42 @@
             views: {
                 'content': {
                     controller: 'findColorCtrl',
-                    templateUrl: '/html/color.html'
+                    templateUrl: '/html/js/color.html'
                 }
             }
-        }).state({
-            name: 'others',
-            url: '/others',
-            views: {
-                'content': {
-                    controller: 'othersCtrl',
-                    templateUrl: '/html/others.html'
-                }
-            }
-        }).state({
+        });
+    }
+
+    function tech_angular($stateProvider){
+        $stateProvider.state({
             name: 'options',
             url: '/options',
             views: {
                 'content': {
                     controller: 'ngOptionsCtrl',
-                    templateUrl: '/html/options.html'
+                    templateUrl: '/html/angular/options.html'
+                }
+            }
+        }).state({
+            name: 'material',
+            url: '/material',
+            views: {
+                'content': {
+                    controller: 'materialCtrl',
+                    templateUrl: '/html/angular/material.html'
+                }
+            }
+        });
+    }
+
+    function tech_other($stateProvider){
+        $stateProvider.state({
+            name: 'others',
+            url: '/others',
+            views: {
+                'content': {
+                    controller: 'othersCtrl',
+                    templateUrl: '/html/other/others.html'
                 }
             }
         }).state({
@@ -86,16 +118,7 @@
                 'content': {
                     controller: 'mapCtrl',
                     controllerAs: 'vm',
-                    templateUrl: '/html/map.html'
-                }
-            }
-        }).state({
-            name: 'material',
-            url: '/material',
-            views: {
-                'content': {
-                    controller: 'materialCtrl',
-                    templateUrl: '/html/material.html'
+                    templateUrl: '/html/other/map.html'
                 }
             }
         });
@@ -107,7 +130,7 @@
             url: '/404',
             views: {
                 'content': {
-                    templateUrl: '/html/error.html'
+                    templateUrl: '/html/other/error.html'
                 }
             }
         });

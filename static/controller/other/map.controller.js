@@ -10,7 +10,7 @@
 
         vm.initData = function() {
             $timeout(function(){
-                $.get('/script/lib/china.map.json', function (chinaJson) {
+                $.get('/static/lib/china.map.json', function (chinaJson) {
                     echarts.registerMap('china', chinaJson);
                     var chart = echarts.init(document.getElementById('map_china'));
                     var geoCoordMap = {

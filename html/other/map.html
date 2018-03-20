@@ -1,0 +1,16 @@
+<div class="chart" ng-init="vm.initData()">
+    <div class="content" id="map_china" style="height: 800px;"></div>
+</div>
+
+<script type="text/javascript">
+    var canvas1 = document.getElementById('map_china');
+    function resizeToFitContent( canvas ) {
+        debugger;
+        canvas.height = window.innerHeight;
+    }
+    resizeToFitContent(canvas1);
+
+    $(window).resize(function () { //当浏览器大小变化时
+        resizeToFitContent(canvas1);
+    });
+</script>

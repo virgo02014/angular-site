@@ -123,7 +123,7 @@ angular
                 }
             };
 
-            xmlhttp.open('GET','/script/file/books.xml',true);
+            xmlhttp.open('GET','/static/file/books.xml',true);
             xmlhttp.send();
         };
 

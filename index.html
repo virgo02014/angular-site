@@ -43,12 +43,12 @@
     <!-- base标签为页面上的所有链接规定默认地址或默认目标 -->
     <base href="/" />
 
-    <link rel="stylesheet" href="./dest/style.css">
     <link rel="stylesheet" type="text/css" href="./bower_components/angular-loading-bar/build/loading-bar.min.css">
     <link rel="stylesheet" type="text/css" href="./bower_components/cropper/dist/cropper.min.css">
     <link rel="stylesheet" type="text/css" href="./bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./dest/index.css">
+    <link rel="stylesheet" href="./dest/style.css">
     <script>
         window.loadingStartTime = new Date();
     </script>
@@ -56,9 +56,10 @@
 </head>
 <body>
     <div ui-view="content"></div>
+    <!-- 初始化页面加载百分比
     <div class="init_loading" id="init_loading">
         <div class="init_progress" id="init_progress">0%</div>
-    </div>
+    </div> -->
 
     <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -67,9 +68,9 @@
     <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
     <script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
 
-    <script type="text/javascript" src="./script/lib/loading.extend.js"></script>
-    <script type="text/javascript" src="./script/lib/qr.code.js"></script>
-    <script type="text/javascript" src="./script/lib/jquery.extend.source.js"></script>
+    <script type="text/javascript" src="./static/lib/loading.extend.js"></script>
+    <script type="text/javascript" src="./static/lib/qr.code.js"></script>
+    <script type="text/javascript" src="./static/lib/jquery.extend.source.js"></script>
 
     <script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./bower_components/jquery-cookie/jquery.cookie.js"></script>
@@ -83,7 +84,7 @@
     <script type="text/javascript" src="./website.routes.js"></script>
 
     <script type="text/javascript" src="./dest/common.js"></script>
-    <script type="text/javascript" src="./dest/module.js"></script>
+    <script type="text/javascript" src="./dest/controller.js"></script>
 
     <!-- <div class="bdsharebuttonbox relative wraper" data-tag="share_1">
         此处添加展示按钮
@@ -126,7 +127,7 @@
         with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
     </script> -->
 
-    <script type="text/javascript" src="./script/lib/cursor_attract.js"></script>
+    <script type="text/javascript" src="./static/lib/cursor_attract.js"></script>
     <!-- script: 放在head，页面加载完成之前就读取
                  放在body，整个页面加载完成后读取 -->
 </body>

@@ -1,0 +1,50 @@
+.truning {
+    width: 1050px; /*(200 +左边距5 +右边距5)*5*/
+    margin: 50px auto; /*上下边距50px, 左右居中*/
+    li {
+        width: 200px; /*20em 1em=16px*/
+        height: 328px;
+        float: left;
+        margin: 5px;
+        position: relative; /*子绝父相*/
+        cursor: pointer;
+        &:after {
+          content: ''; /*content必须有 即使为空*/
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border: 10px solid rgba(0,0,0,0.2); /*rgba red green blue Alpha透明度*/
+          box-sizing: border-box; /*border-box: 通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度*/
+          transition: all 1s;
+        }
+        div {
+            width: 100%;
+            height: 100%;
+            background: pink no-repeat center top;
+            position: absolute;
+            background-size: cover; /*把背景图像扩展至足够大，以使背景图像完全覆盖背景区域*/
+            transition: background-image 1s; /*过渡*/
+            backace-visibility: hidden; /*定义当元素不面向屏幕时是否可见  默认:可见*/
+            &:first-child {
+                transform: rotateX(180deg);
+            }
+            &:last-child {
+                background-color: seagreen;
+            }
+        }
+    }
+    .active {
+        div {
+            transition: all 1s;
+            &:first-child {
+                transform: rotateX(0deg);
+            }
+            &:last-child {
+                transform: rotateX(180deg);
+            }
+        }
+        &:after {
+            border-color: rgba(0,0,0,0.7);
+        }
+    }
+}
